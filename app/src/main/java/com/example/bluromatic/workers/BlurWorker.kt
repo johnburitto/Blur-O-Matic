@@ -27,7 +27,7 @@ class BlurWorker(ctx: Context, params: WorkerParameters) : CoroutineWorker(ctx, 
                     applicationContext.resources,
                     R.drawable.android_cupcake
                 )
-                val output = blurBitmap(picture, 1)
+                val output = blurBitmap(picture, 3)
                 val outputUri = writeBitmapToFile(applicationContext, output)
 
                 makeStatusNotification(
