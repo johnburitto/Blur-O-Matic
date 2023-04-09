@@ -18,7 +18,7 @@ import kotlinx.coroutines.withContext
 
 class BlurWorker(ctx: Context, params: WorkerParameters) : CoroutineWorker(ctx, params) {
     private val resourceUri = inputData.getString(KEY_IMAGE_URI)
-    private val blurLevel = inputData.getInt(KEY_BLUR_LEVEL, 3)
+    private val blurLevel = 3
 
     override suspend fun doWork(): Result {
         makeStatusNotification(
