@@ -50,7 +50,12 @@ class WorkManagerBluromaticRepository(context: Context) : BluromaticRepository {
             .addTag(TAG_OUTPUT)
             .build()
 
+        val constraints = Constraints.Builder()
+            .setRequiresBatteryNotLow(true)
+            .build()
+
         blurBuilder.setInputData(createInputDataForWorkRequest(blurLevel, imageUri))
+        blurBuilder.setConstraints(constraints)
 
         continuation = continuation.then(blurBuilder.build())
         continuation = continuation.then(save)
